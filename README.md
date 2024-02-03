@@ -20,18 +20,35 @@
     ```
     
 - How to Add to KMP Project
-- - ```
+  - Check out Fred's Roadtrip Storyteller App for implementation: https://github.com/realityexpander/FredsRoadtripStoryteller
+  - ```
+    // libs.versions.toml
+    [versions]
+    compose-uiToolingPreview = "1.6.0"
+
     // build.gradle.kts (:shared)
     // at bottom of file in block by itself:
     dependencies {
         // For Compose previews in Android
         debugImplementation(libs.androidx.ui.tooling.preview.v160)
+        // ... rest of dependencies ...
     }
 
     // build.gradle.kts (:androidApp)
     // dependencies {
         implementation(libs.androidx.compose.ui)
         implementation(libs.androidx.compose.ui.tooling.preview)
+        // ... rest of dependencies ...
+    }
+
+    // build.gradle.kts (:shared)
+    val androidMain by getting {
+            dependencies {
+                // Compose previews
+                implementation(libs.compose.ui.tooling.preview)  // previews only work on Android side
+                implementation(libs.compose.ui.tooling)
+                // ... rest of dependencies ...
+            }
     }
     ```
 
