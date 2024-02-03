@@ -5,19 +5,19 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape
 
 // material2
-//import androidx.compose.material.MaterialTheme
-//import androidx.compose.material.Shapes
-//import androidx.compose.material.Typography
-//import androidx.compose.material.darkColors
-//import androidx.compose.material.lightColors
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Shapes
+import androidx.compose.material.Typography
+import androidx.compose.material.darkColors
+import androidx.compose.material.lightColors
 // material3
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Shapes
-import androidx.compose.material3.Typography
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
-import androidx.compose.material3.lightColorScheme
+//import androidx.compose.material3.MaterialTheme
+//import androidx.compose.material3.Shapes
+//import androidx.compose.material3.Typography
+//import androidx.compose.material3.darkColorScheme
+//import androidx.compose.material3.dynamicDarkColorScheme
+//import androidx.compose.material3.dynamicLightColorScheme
+//import androidx.compose.material3.lightColorScheme
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -36,10 +36,10 @@ fun ComposePreviewAnnotationsTheme(
     content: @Composable () -> Unit
 ) {
     val colors = if (darkTheme) {
-//        darkColors( // materials2
-        darkColorScheme(  // material3
-            primary = Color(0xFF0059CB),
-//            primary = Color.Red,
+        darkColors( // materials2
+//        darkColorScheme(  // material3
+//            primary = Color(0xFF0059CB),
+            primary = Color.Red,
             // onPrimary = Color(0xFFBBBBBB),
             onPrimary = Color(0xFFDDDDDD),
             secondary = Color(0xFF4cb2a2),
@@ -55,14 +55,16 @@ fun ComposePreviewAnnotationsTheme(
             error = Color(0xFFFF0000)
         )
     } else {
-//        lightColors( // material2
-        lightColorScheme( // material3
+        lightColors( // material2
+//        lightColorScheme( // material3
             primary = Color(0xFF0089FB),
+//            primary = Color.Red,
             onPrimary = Color(0xFFFFFFFF),
             secondary = Color(0xFF00917d),
             onSecondary = Color(0xFFFFFFFF),
             // tertiary = Color(0xFF3700B3)
-            surface = Color(0xFFCCCCCC),
+//            surface = Color(0xFFCCCCCC),
+            surface = Color.Blue,
             onSurface = Color(0xFF000000),
             background = Color(0xFF444444),
             onBackground = Color(0xFFDDDDDD),
@@ -71,8 +73,8 @@ fun ComposePreviewAnnotationsTheme(
         )
     }
     val typography = Typography(
-        bodyMedium = TextStyle( // material3
-//        body2 = TextStyle( // material2
+        body2 = TextStyle( // material2
+//        bodyMedium = TextStyle( // material3
             fontFamily = FontFamily.Default,
             fontWeight = FontWeight.Normal,
             fontSize = 16.sp
@@ -85,17 +87,17 @@ fun ComposePreviewAnnotationsTheme(
     )
 
     MaterialTheme(
-//        colors = colors, // material2
-        colorScheme = when { // material3
-            dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-                val context = LocalContext.current
-                if (darkTheme)
-                    dynamicDarkColorScheme(context)
-                else
-                    dynamicLightColorScheme(context)
-            }
-            else -> colors
-        },
+        colors = colors, // material2
+//        colorScheme = when { // material3
+//            dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+//                val context = LocalContext.current
+//                if (darkTheme)
+//                    dynamicDarkColorScheme(context)
+//                else
+//                    dynamicLightColorScheme(context)
+//            }
+//            else -> colors
+//        },
         typography = typography,
         shapes = shapes,
         content = content
